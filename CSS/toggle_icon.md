@@ -24,12 +24,15 @@ HTML의 토글은 체크박스가 있습니다.
 1. 레이블을 이용해서 아이콘과 체크박스를 묶어준다.  
 // 간접적으로 아이콘에 토글 기능 부여
 2. UI 상태에 따른 값을 부여한다.  
-// 애니메이션 효과 부여  
+// 애니메이션 효과 부여
+
+코드를 통해 좀 더 구체적으로 알아보겠습니다.  
+
 
 
     <label for="toggle">
-    <input type="checkbox" id="toggle">
-    <div class="i"></div>
+      <input type="checkbox" id="toggle">
+      <div class="i"></div>
     </label>
 
 
@@ -44,7 +47,7 @@ HTML 코드
       height: 30px;
       background-color: orange;
       cursor: pointer;
-      transition: all, 1s;
+      transition: all, 1s;ㅎ
     }
     #toggle:checked + .i {
       background-color: violet;
