@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>숫자 맞추기</title>
+</head>
+<body>
+  <h1>숫자 맞추기</h1>
+  <p>임의의 숫자를 고르겠습니다.
+    1~100 사이의 수 입니다.
+    
+    그 수를 추측해보세요!
+    틀릴 경우 정답보다 높은지 낮은지를 알려드립니다.
+    기회는 10번.
+    </p>
+
+    <label for="guessField">정답</label>
+    <input id="guessField" class="guessField" type="text">
+    <input class="guessSubmit" type="submit" value="제출">
+
+    <p class="guesses"></p>
+    <p class="result"></p>
+    <p class="lowOrHigh"></p>
+
+    <script>
+      var answer = Math.floor(Math.random() * 100) + 1;
+      
+      var guessSubmit = document.querySelector('.guessSubmit');
+      var guessField = document.querySelector('.guessField');
+
+      var Count = 9;
+      var newGameBtn;
+
+      var guesses = document.querySelector('.guesses');
+      var result = document.querySelector('.result');
+      var lowOrHigh = document.querySelector('.lowOrHigh');
+      
+      function Guess() {
+        var userGuess = Number(guessField.value);
+        if (Count === 9) {
+          guesses.textContent = '목록: ';
+        }
+        guesses.textContent += userGuess + ' ';
+
+        if (userGuess === answer) {
+          result.textContent = '축하합니다! 정답이에요!';
+          result.style.background = 'yellow';
+          lowOrHigh.textContent = '';
+          setGameOver();
+        } else if (Count === 0) {
+          result.textContent = '!!!다음 기회에!!!'
+          result.style.background = 'gray';
+          setGameOver();
+        } else {
+          result.textContent = '땡!';
+          result.style.background = 'red';
+            if(userGuess < answer) {
+              lowOrHigh.textContent = '너무 작게 쓰셨어요!'
+            } else if (userGuess > answer) {
+              lowOrHigh.textContent = '너무 큰데요?!'
+            }
+        }
+
+        Count--;
+        guessField.value = '';
+        guessField.focus();
+      }
+
+      guessSubmit.addEventListener('click', Guess);
+      
+      function setGameOver() {
+        guessField.disabled = true;
+        guessSubmit.disabled = true;
+        newGameBtn = document.createElement('button');
+        newGameBtn.textContent = '한판 더 하기';
+        document.body.appendChild(newGameBtn);
+        newGameBtn.addEventListener('click', resetGame);
+      }
+    </script>
+</body>
+</html>
