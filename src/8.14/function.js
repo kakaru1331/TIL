@@ -10,12 +10,12 @@ function checkPalindrom(str) {
   reverseStr = str.split('').reverse().join('');
   // 문자열을 짤라서 배열에 담는다. 뒤집는다. 붙여준다.
 
-  if (str === reverseStr) {
-    return true;
-  } else {
-    return false;
-  }
-  
+  // if (str === reverseStr) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+  return (str === reverseStr);
 }
 
 console.log(checkPalindrom('dad')); // true
