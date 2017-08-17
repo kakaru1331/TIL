@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" name="" id="left"> +
+  <input type="text" name="" id="right"> =
+  <input type="text" name="" id="total">
+  
+  <input type="button" value="확인" id="btn">
+  
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    // 확인 버튼에 클릭 이벤트 부여
+    $('#btn').click(function() {
+      // 텍스트 값을 숫자로 변환해서 변수에 담는다.
+      var l = Number($('#left').val());
+      var r = Number($('#right').val());
+      var t = Number($('#total').val());
+      
+      // 앞에 두 값이 결과와 일치하는지 확인.
+      if (l + r === t) {
+        alert('정답');
+      } else {
+        alert('오답');
+      }
+    })
+  </script>
+</body>
+</html>

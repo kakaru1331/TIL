@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Color Box</title>
+  <style>
+    #colorBox {
+      width: 200px;
+      height: 200px;
+      border: 1px solid gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="colorBox"></div>
+
+  <script>
+    // #colorBox 객체를 변수에 담는다.
+    var colorBox = document.querySelector('#colorBox');
+    
+    colorBox.style.background = 'blue';
+
+    colorBox.addEventListener('mouseover', function(){
+      colorBox.style.background = 'red';
+    })
+    colorBox.addEventListener('mouseout', function(){
+      colorBox.style.background = 'yellow';
+    })
+  </script>
+</body>
+</html>
