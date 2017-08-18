@@ -21,7 +21,7 @@ function checkPalindrom(str) {
 console.log(checkPalindrom('dad')); // true
 console.log(checkPalindrom('mom')); // true
 console.log(checkPalindrom('palindrom')); // false
-console.log(checkPalindrom('s')); // false
+console.log(checkPalindrom('s')); // true
 
 
 
@@ -43,7 +43,7 @@ function findMinDistance(array){
     distance2[i] = array[i+1] - array[i];
   }
 
-  var minDistance = distance2.sort(function (a,b) { return a - b}).shift();
+  var minDistance = distance2.sort(function (a,b) { return a - b }).shift();
   // 점과 점 사이의 최단거리 구하기
 
   for (var j = 0; j < array.length-1; j++) {

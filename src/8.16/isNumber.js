@@ -25,3 +25,27 @@ function alphaString46 (s) {
 console.log(alphaString46('444')); // false
 console.log(alphaString46('12345'));
 console.log(alphaString46('a23456')); // false
+
+
+
+function alphaString46_v2 (s) {
+  if(!s) return false;
+
+  return ((s.length >= 4 && s.length <= 6) && !isNaN(s));
+}
+
+console.log(alphaString46_v2('444')); // false
+console.log(alphaString46_v2('12345'));
+console.log(alphaString46_v2('a23456')); // false
+
+
+
+function alphaString46_v3 (s) {
+  if(!s) return false;
+  
+  return /^[0-9]{4,6}$/.test(s)
+}
+
+console.log(alphaString46_v3('444')); // false
+console.log(alphaString46_v3('12345'));
+console.log(alphaString46_v3('a23456')); // false
