@@ -14,7 +14,8 @@ function waterMelon(n){
 
   // i가 짝수면 '수', 홀수면 '박'을 더한다
   for (var i=0; i<n-1; i++) {
-    i%2 ? strWaterMelon += '박' : strWaterMelon += '수';
+    // i%2 ? strWaterMelon += '박' : strWaterMelon += '수';
+    strWaterMelon += i%2 ? '박' : '수';
   }
 
   return strWaterMelon;
