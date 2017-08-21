@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body{
+      margin: 10px;
+    }
+    .checkbox{
+      display: inline-block;
+    }
+    div{
+      border: 1px solid gray;    
+      padding: 10px;
+      margin: 10px;
+    }
+    li{
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>
+      <input id="opt1" type="checkbox" name="checkBoxSet1">
+      <label for="opt1">option1</label>
+    </li>
+    <li>
+      <input id="opt2" type="checkbox" name="checkBoxSet1">
+      <label for="opt2">option2</label>
+    </li>
+    <li>
+      <input id="opt3" type="checkbox" name="checkBoxSet1">
+      <label for="opt3">option3</label>
+    </li>
+  </ul>
+  <input id="btnAlert" type="button" value="체크된 박스의 수">
+  <input id="btnToggle" type="button" value="모두 체크">  
+
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quam exercitationem excepturi, cum dignissimos libero error similique sunt! Unde harum possimus esse ea atque facilis mollitia! Voluptate, nihil ducimus. Provident!</p>
+    <input id="opt4" type="checkbox" name="checkBoxSet2">
+    <label for="opt4">약관 동의</label>
+  </div>
+  
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quam exercitationem excepturi, cum dignissimos libero error similique sunt! Unde harum possimus esse ea atque facilis mollitia! Voluptate, nihil ducimus. Provident!</p>
+    <input id="opt5" type="checkbox" name="checkBoxSet2">
+    <label for="opt5">약관 동의</label> 
+  </div>
+
+  <input id="btnCheck" type="button" value="모두 동의">
+  <input type="button" value="확인">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    const checkBoxSet1 = $('input[name=checkBoxSet1');
+    const checkBoxSet2 = $('input[name=checkBoxSet2');
+
+    // 클릭 이벤트. 콜백: 체크된 박스의 갯수를 경고창으로 띄운다.
+    $('#btnAlert').on('click', function(){
+      let checkedCount = $('input[name=checkBoxSet1]:checked').length;
+
+      alert(checkedCount);
+    })
+    
+    // 클릭 이벤트. 콜백: 모든 박스에 체크를 하거나 해제한다.
+    $('#btnToggle').on('click', function(){
+      let checkedCount = $('input[name=checkBoxSet1]:checked').length;      
+
+      if(checkedCount === checkBoxSet1.length){
+        checkBoxSet1.prop('checked', false);
+      } else {
+        checkBoxSet1.prop('checked', true);
+      }
+    })
+
+    // 클릭 이벤트. 콜백: 모든 박스를 체크한다.
+    $('#btnCheck').on('click', function(){
+      checkBoxSet2.prop('checked', true);
+    })    
+  </script>
+</body>
+</html>
+
+
+<!--
+test
+  
+$('#btnAlert').('click', function(){
+  checkedCount = 0;
+  
+  for(let i = 0; i < checkBoxSet1.length; i++){
+    checkBoxSet1.
+  }
+}) 
+-->
