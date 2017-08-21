@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body{
+      margin: 10px;
+    }
+    .checkbox{
+      display: inline-block;
+    }
+    div{
+      border: 1px solid gray;    
+      padding: 10px;
+      margin: 10px;
+    }
+    li{
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>
+      <input class="set1" id="opt1" type="checkbox" name="set_1">
+      <label for="opt1">option1</label>
+    </li>
+    <li>
+      <input class="set1" id="opt2" type="checkbox" name="set_1">
+      <label for="opt2">option2</label>
+    </li>
+    <li>
+      <input class="set1" id="opt3" type="checkbox" name="set_1">
+      <label for="opt3">option3</label>
+    </li>
+  </ul>
+  <input id="btnAlert" type="button" value="체크된 박스의 수">
+  <input id="btnToggle" type="button" value="모두 체크">  
+
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quam exercitationem excepturi, cum dignissimos libero error similique sunt! Unde harum possimus esse ea atque facilis mollitia! Voluptate, nihil ducimus. Provident!</p>
+    <input class="set2" id="opt4" type="checkbox">
+    <label for="opt4">약관 동의</label>
+  </div>
+  
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quam exercitationem excepturi, cum dignissimos libero error similique sunt! Unde harum possimus esse ea atque facilis mollitia! Voluptate, nihil ducimus. Provident!</p>
+    <input class="set2" id="opt5" type="checkbox">
+    <label for="opt5">약관 동의</label> 
+  </div>
+
+  <input id="btnCheck" type="button" value="모두 동의">
+  <input type="button" value="확인">
+
+  <script>
+    const checkBoxSet1 = document.querySelectorAll('.set1');
+    const btnAlert = document.querySelector('#btnAlert');
+    const btnToggle = document.querySelector('#btnToggle');
+    const checkBoxSet2 = document.querySelectorAll('.set2');
+    const btnCheck = document.querySelector('#btnCheck');
+    
+    // 반복문으로 체크박스의 체크 여부를 확인한다. 체크된 박스 수를 띄워줌.
+    btnAlert.addEventListener('click', function(){
+      let checkedCount = 0;
+
+      for(let i = 0; i < checkBoxSet1.length; i++){
+        if(checkBoxSet1[i].checked === true) {
+          checkedCount++
+        }
+      }
+
+      alert(checkedCount);
+    })
+    
+    // 모든 체크박스의 체크가 되어있을 경우에만 checked = true. 그 외에는 checked = false.
+    btnToggle.addEventListener('click', function(){
+      let checkedCount = 0;
+      
+      for(let i = 0; i < checkBoxSet1.length; i++){
+        if(checkBoxSet1[i].checked === true)
+          checkedCount++
+      }
+      
+      if(checkedCount === checkBoxSet1.length){
+        for(let i = 0; i < checkBoxSet1.length; i++){
+          checkBoxSet1[i].checked = false;
+        }
+      } else {
+        for(let i = 0; i < checkBoxSet1.length; i++){
+        checkBoxSet1[i].checked = true;
+        }
+      }
+    })
+
+    btnCheck.addEventListener('click', function(){
+      for(let i = 0; i < checkBoxSet2.length; i++){
+        checkBoxSet2[i].checked = true;
+      }
+    })
+  </script>
+</body>
+</html>
+
+<!-- 
+1. checkbox 3, buttton 2
+  btn 1: 체크된 박스 수를 경고창으로.
+  btn 2: checkbox toggle: check / uncheck
+
+2. div > checkbox, button 2
+  btn 1: check all
+  btn 2: redirection 
+-->
