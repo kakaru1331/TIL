@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random color balls</title>
+</head>
+<body>
+    <script>
+        function random(range) {
+            return Math.floor(Math.random() * range);
+        }
+        
+        var container = document.createElement("div");
+        document.body.appendChild(container);
+
+        for (var i=0; i < 10; i++) {
+            var ball = document.createElement("div");
+
+            ball.style.height = ball.style.width = "50px";
+            ball.style.borderRadius = "50%";
+            ball.style.position = "absolute";
+            ball.style.left = random(2000)+"px";
+            ball.style.top = random(2000)+"px";            
+
+            container.appendChild(ball);
+        }
+
+        var balls = container.children;
+
+        setInterval(function() {
+            for (var i=0; i < balls.length; i++) {
+                balls[i].style.backgroundColor = "rgb(" + random(255) + "," + random(255) + "," + random(255) + ")"
+                balls[i].style.left = random(500)+"px";
+                balls[i].style.top = random(500)+"px";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
